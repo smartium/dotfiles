@@ -10,13 +10,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id /home/luizinho/.config/polybar/launch.sh
-
 exec --no-startup-id pamac-tray
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-clipman
 exec_always --no-startup-id feh --bg-fill /home/luizinho/Pictures/Wallpapers/DarthRed2.jpg
 exec --no-startup-id dunst
-# exec_always --no-startup-id /home/luizinho/Development/nodejs/njsI3Bar/launch.sh
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

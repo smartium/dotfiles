@@ -16,13 +16,13 @@ async function getFreeMem() {
     if (mem < 5) {
         getCommandOutput("notify-send WARNING 'RAM Memory is low' -u critical")
     }
-    return formatBlock('', `${mem.toFixed(0)}/16`, 'GiB');
+    return formatBlock('', `${mem.toFixed(0)}/16`, 'GiB (free)');
 }
 
 async function getGpuMem() {
     var smi = await getCommandOutput("nvidia-smi --query-gpu=name,temperature.gpu,memory.free,memory.total --format=csv,noheader")
     var data = smi.split(',')
-    return formatBlock('', `${(parseFloat(data[2].split(' ')[1])/1024).toFixed(2)}/${(parseFloat(data[3].split(' ')[1])/1024).toFixed(0)}.00`, `GiB (${data[0]})`);
+    return formatBlock('', `${(parseFloat(data[2].split(' ')[1])/1024).toFixed(2)}/${(parseFloat(data[3].split(' ')[1])/1024).toFixed(0)}.00`, `GiB (free) ${data[0]}`);
 }
 
 function getFileContent(path) {
@@ -115,7 +115,7 @@ async function getBrightness() {
 }
 
 function getOsUsername() {
-    return formatBlock('', userInfo().username);
+    return formatBlock('', userInfo().username.toUpperCase());
 }
 
 function byNetworkInterfaceName(networkInterfaceName) {
@@ -157,7 +157,7 @@ function networkInterfaceIPAddress(interface) {
 
     }
 
-    return formatBlock('', `<span size="x-small">${networkInterface[interface]}</span>`, 'IPv4');
+    return formatBlock('', `${networkInterface[interface]}`, 'IPv4');
 }
 
 module.exports = {

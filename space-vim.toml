@@ -1,0 +1,111 @@
+#=============================================================================
+# dark_powered.toml --- dark powered configuration example for SpaceVim
+# Copyright (c) 2016-2020 Wang Shidong & Contributors
+# Author: Wang Shidong < wsdjeg at 163.com >
+# URL: https://spacevim.org
+# License: GPLv3
+#=============================================================================
+
+# All SpaceVim option below [option] section
+[options]
+    # set spacevim theme. by default colorscheme layer is not loaded,
+    # if you want to use more colorscheme, please load the colorscheme
+    # layer
+    colorscheme = "gruvbox"
+    colorscheme_bg = "dark"
+    # Disable guicolors in basic mode, many terminal do not support 24bit
+    # true colors
+    enable_guicolors = true
+    # Disable statusline separator, if you want to use other value, please
+    # install nerd fonts
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    enable_tabline_filetype_icon = true
+    enable_statusline_mode = false
+
+# Enable autocomplete layer
+[[layers]]
+name = 'autocomplete'
+auto_completion_return_key_behavior = "complete"
+auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+name = 'shell'
+default_position = 'bottom'
+default_height = 10
+
+[[layers]]
+name = "lang#javascript"
+
+[[layers]]
+name = "lang#html"
+
+[[layers]]
+name = "lang#markdown"
+
+[[layers]]
+name = "lang#processing"
+
+[[layers]]
+name = "lang#sh"
+
+[[layers]]
+name = "lang#c"
+
+[[layers]]
+name = "lang#dockerfile"
+
+
+
+#[[layers]]
+#name = "lang#typescript"
+
+[[layers]]
+name = "tmux"
+
+[[layers]]
+name = "tools#zeal"
+
+
+
+[[custom_plugins]]
+repo = "liuchengxu/space-vim-theme"
+marged = 0
+
+[[custom_plugins]]
+  repo = "mhartington/oceanic-next"
+  merged = 0
+
+[[custom_plugins]]
+name = "dracula/vim"
+merged = 0
+
+[[custom_plugins]]
+name = "wadackel/vim-dogrun"
+merged = 0
+
+[[custom_plugins]]
+name = "whatyouhide/vim-gotham"
+marged = 0
+
+[[custom_plugins]]
+name = "grvcoelho/vim-javascript-snippets"
+
+[[custom_plugins]]
+name = "sheerun/vim-polyglot"
+
+[[custom_plugins]]
+name = "mxw/vim-jsx"
+
+[[custom_plugins]]
+name = "jiangmiao/auto-pairs"
+
+[[custom_plugins]]
+name = "pangloss/vim-javascript"
+
+[[custom_plugins]]
+name = "jelera/vim-javascript-syntax"
+
+[[custom_plugins]]
+name = "bfrg/vim-cpp-modern"

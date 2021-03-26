@@ -404,8 +404,8 @@ format-foreground = #ffffff
 type = custom/script
 exec = /home/luizinho/.config/polybar/modules/apple/launch.sh
 enable-click = true
-click-left = nemo &
-click-right = rofi -show drun -show-icons
+click-left = rofi -show drun -show-icons
+;click-right = 
 interval = 3600
 
 [module/myapps]
