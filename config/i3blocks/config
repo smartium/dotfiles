@@ -1,0 +1,123 @@
+#!/bin/sh
+
+# For the benefit of emacs users: -*- shell-script -*-
+#  _ _____ _     _            _
+# (_)___ /| |__ | | ___   ___| | _____
+# | | |_ \| '_ \| |/ _ \ / __| |/ / __|
+# | |___) | |_) | | (_) | (__|   <\__ \
+# |_|____/|_.__/|_|\___/ \___|_|\_\___/
+
+#full_text=
+align=center
+separator=false
+color=#1a1919
+separator_block_width=30
+markup=pango
+
+
+[Whatsapp]
+full_text=
+command=$HOME/Applications/WhatsApp/WhatsApp
+color=#FF0000
+align=left
+
+[separator]
+
+[notion]
+full_text=
+command=$HOME/Applications/Notion/Notion
+color=#FF0000
+
+[separator]
+
+[files]
+full_text=
+command=nautilus
+color=#FF0000
+
+[separator]
+
+[flameshot]
+full_text=
+command=flameshot gui -p ~/Pictures/Screenshots
+color=#FF0000
+
+# Guess the weather hourly
+# [weather]
+# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
+# interval=3600
+# color=#FFF
+
+# [email]
+# command=~/.config/i3blocks/email/email
+# interval=300
+# min_width=messages: 99
+# label=<span color="#ec0101"> </span>
+
+[separator]
+
+[root]
+color=#b4afb9
+command=df -h / | awk 'FNR==2{print $4}'
+interval=3
+label=<span color="#ec0101"> </span>
+
+[separator]
+
+[cpu_usage]
+color=#b4afb9
+command=~/.config/i3blocks/cpu_usage/cpu_usage
+interval=2
+label=<span color="#ec0101"> </span>
+#min_width=CPU: 100.00%
+
+[separator]
+
+[memory]
+color=#b4afb9
+command=~/.config/i3blocks/memory/memory
+label=<span color="#ec0101"> </span>
+interval=30
+
+[separator]
+
+[temperature]
+color=#b4afb9
+command=~/.config/i3blocks/temperature/temperature
+label=<span color="#ec0101"> </span>
+interval=10
+
+[separator]
+
+[volume]
+color=#b4afb9
+label=<span color="#ec0101"> </span>
+instance=Master
+command=~/.config/i3blocks/volume/volume
+interval=once
+signal=2
+
+[separator]
+
+[wifi]
+color=#b4afb9
+command=ssid=$(iwgetid -r) ; [[ $ssid == "" ]] && ssid="N/A" ; echo $ssid
+interval=5
+label=<span color="#ec0101"> </span>
+
+[separator]
+
+[battery2]
+command=~/.config/i3blocks/battery2/battery2
+markup=pango
+interval=30
+
+[separator]
+
+[time]
+color=#b4afb9
+command=date '+%A %e (%I:%M)'
+interval=1
+label=<span color="#ec0101"> </span>
+
+[separator]

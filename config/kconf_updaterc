@@ -1,0 +1,11 @@
+updateInfoAdded=true
+
+[filepicker.upd]
+ctime=1616465679
+done=filepicker-remove-old-previews-entry
+mtime=1615819046
+
+[gtkconfig.upd]
+ctime=1616530597
+done=gtk_theme,dont_use_gtk_css_for_window_decorations
+mtime=1615906624

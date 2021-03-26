@@ -1,0 +1,19 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+update_interval 1.0
+total_run_times 0
+short_units on
+if_up_strictness address
+use_spacer left
+override_utf8_locale no
+cpu_avg_samples 1
+
+TEXT
+[{"full_text" : "Int  $battery_percent %", "color" : ${if_match ${battery_percent}>70}"\#76DEAD"${else}${if_match ${battery_percent}<30}"\#ED6D8B"${else}"\#CDD4A3"${endif}${endif} },
+{"full_text" : "Ext  ${battery_percent BAT1} %", "color" : ${if_match ${battery_percent BAT1}>70}"\#76DEAD"${else}${if_match ${battery_percent BAT1}<30}"\#ED6D8B"${else}"\#CDD4A3"${endif}${endif} },
+{ "full_text" : "  ${fs_free} /${fs_size} "},
+{ "full_text" : "   $uptime_short " , "color" : "\#CDD4A3" }, 
+{ "full_text" : "  ${time %H}:${time %M}   ${time %d}. ${time %b} ${time %y} " , "color" : "\#CDD4A3" }],

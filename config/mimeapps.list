@@ -1,0 +1,32 @@
+[Default Applications]
+application/octet-stream=mousepad.desktop
+application/pdf=qpdfview.desktop
+application/x-gettext-translation=mousepad.desktop
+application/xml=mousepad.desktop
+application/x-wine-extension-ini=mousepad.desktop
+text/plain=vscode.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+text/html=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop
+x-scheme-handler/magnet=freedownloadmanager_magnet_up.desktop
+application/x-bittorrent=freedownloadmanager_torrent.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+application/x-alpm-package=pamac-installer.desktop
+inode/directory=xfce4-file-manager.desktop
+x-scheme-handler/trash=xfce4-file-manager.desktop
+application/x-compressed-tar=org.gnome.FileRoller.desktop
+
+[Added Associations]
+x-scheme-handler/http=xfce4-web-browser.desktop;
+x-scheme-handler/https=xfce4-web-browser.desktop;
+application/xml=vscode.desktop;
+application/x-desktop=nvim.desktop;blender.desktop;
+text/plain=nvim.desktop;vscode.desktop;
+application/x-alpm-package=engrampa.desktop;pamac-installer.desktop;
+inode/directory=xfce4-file-manager.desktop;
+x-scheme-handler/trash=xfce4-file-manager.desktop;
+application/x-compressed-tar=org.manjaro.pamac.manager.desktop;org.gnome.FileRoller.desktop;
+application/x-rpm=org.manjaro.pamac.manager.desktop;

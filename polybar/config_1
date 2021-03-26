@@ -1,0 +1,48 @@
+[bar/bsimple]
+width = 100%
+height = 55
+fixed-center = false
+dpi-x = 196
+dpi-y = 196
+background = #BB000000
+foreground = #FFFFFF
+
+modules-left = mleft i3
+modules-center = mcenter
+modules-right = mright
+
+[module/mleft]
+type = custom/text
+content = "Module Left"
+
+[module/mcenter]
+type = custom/text
+content = "Module Center"
+
+[module/mright]
+type = custom/text
+content = "Module Right"
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+pin-workspaces = true
+
+label-focused = %name%
+;label-focused-background = #00FF00
+label-focused-background = #090b10
+label-focused-foreground = #00FF00
+label-focused-underline= #090b10
+label-focused-padding = 1
+
+label-unfocused = unfoc
+label-unfocused-padding = 1
+
+label-visible = vis %index%
+label-visible-background = #0000FF
+label-visible-underline = #FFFF00
+label-visible-padding = #FF00FF
+
+label-urgent = urg %index%
+label-urgent-background = #FF0000
+label-urgent-padding = 2

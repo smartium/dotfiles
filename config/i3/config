@@ -1,0 +1,180 @@
+#!/bin/sh
+
+set $mod Mod4
+
+font pango:Ubuntu 12
+
+exec --no-startup-id compton #--config $HOME/.config/compton/compton.conf
+exec --no-startup-id /home/luizinho/.config/conky/launch.sh
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id pamac-tray
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id feh --bg-fill /home/luizinho/Pictures/Wallpapers/1_m8H5-d86Y0CgP7nj113UCw.jpg
+exec --no-startup-id dunst
+# exec_always --no-startup-id /home/luizinho/Development/nodejs/njsI3Bar/launch.sh
+
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+floating_modifier $mod
+
+bindsym $mod+Return exec kitty
+
+bindsym $mod+q kill
+
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+Shift+Left move left 75 px
+bindsym $mod+Shift+Down move down 75 px
+bindsym $mod+Shift+Up move up 75 px
+bindsym $mod+Shift+Right move right 75 px
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle border pixel 1
+#bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+mode "resize" {
+	bindsym j resize shrink width 10 px or 10 ppt
+  bindsym k resize grow height 10 px or 10 ppt
+  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 100 px or 100 ppt
+  bindsym Down resize grow height 100 px or 100 ppt
+  bindsym Up resize shrink height 100 px or 100 ppt
+  bindsym Right resize grow width 100 px or 100 ppt
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+bar {
+  position top
+    workspace_buttons yes
+    font pango: Monoid-Thin 12
+    separator_symbol "  "
+    
+  # i3bar_command i3status -c $HOME/.config/i3status/i3status.conf
+  # status_command /home/luizinho/Desktop/bar.sh
+  # status_command cat /home/luizinho/Desktop/bar.json
+  status_command /home/luizinho/.nvm/versions/node/v14.16.0/bin/node /home/luizinho/Development/nodejs/njsI3Bar/main
+  # status_command ~/bin/conky-i3bar -c /home/luizinho/.config/conky/conky.conf
+  # status_command polybar bsimple
+  colors {
+    focused_workspace	#313233 #FF0000 #FFFFFF
+    background				#23252E
+  }
+}
+
+# Luizinho's configuration
+default_border pixel 1
+hide_edge_borders smart
+title_align center
+
+# class									border	backgr. text    indicator child_border
+client.focused					#FF0000	#FF0000 #FFFFFF #FF0000   #FF0000
+client.focused_inactive	#333333	#5f676a #ffffff #484e50   #5f676a
+client.unfocused				#333333	#222222 #888888 #292d2e   #222222
+client.urgent						#2f343a	#900000 #ffffff #900000   #900000
+client.placeholder      #000000	#0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+bindsym $mod+b exec google-chrome-stable #; workspace $workspace4
+bindsym $mod+t exec kitty #; workspace $workspace2
+bindsym $mod+c exec rofi -show
+bindsym $mod+g workspace $ws10; exec rofi -show drun -show-icons
+bindsym $mod+x exec rofi -show p -modi p:$HOME/.config/rofi/rofi-power-menu -font "Ubuntu 20" -width 20 -lines 6
+bindsym $mod+Shift+t exec thunar
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nm-connection-editor"] floating enable sticky enable border normal
+for_window [class="Gnome-font-viewer"] floating enable sticky enable border normal
+for_window [class="UnityHub"] floating enable sticky enable border normal
+for_window [class="MYKI"] floating enable sticky enable border normal
+for_window [class="Free Download Manager"] floating enable sticky enable border normal
+#for_window [class="zoom"] floating enable sticky enable border normal
+for_window [class="Pavucontrol"] floating enable sticky enable border normal
+for_window [class="Blueberry.py"] floating enable sticky enable border pixel 1
+for_window [class="Xdg-desktop-portal-gtk"] floating enable sticky enable border pixel 1
+for_window [class="Nitrogen"] floating enable sticky enable border pixel 1
+for_window [class="Pamac-installer"] floating enable sticky enable border pixel 1
+for_window [class="Notion"] workspace $ws9
+#exec_always --no-startup-id xlay --dpi 192
+bindsym $mod+Shift+minus move scratchpad border normal
+# Shows the first scratchpad window
+bindsym $mod+minus scratchpad show border normal
+# Show the sup-mail scratchpad window, if any.
+#bindsym mod4+s [title="^Sup ::"] scratchpad show
+# assign [class="kitty"] $workspace2
+# assign [class="Code"] $workspace3
+# assign [class="notion-nativefier-b11061"] $workspace7
+# assign [class="whatsapp-nativefier-d40211"] $workspace8
+# assign [class="Spotify"] $workspace9
+# assign [class="zoom"] $workspace8
+for_window [urgent=latest] focus
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+bindsym $mod+Tab workspace back_and_forth
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+

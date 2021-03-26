@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Code
+Icon=code
+Exec=/home/luizinho/Applications/VSCode/code %u
+Actions=
+Categories=IDE;
+OnlyShowIn=Old;
