@@ -6,7 +6,7 @@ const { wsBar, freeMem, gpuMem, networkBlock, brightnessBlock, batteryBlock, vol
 
 bar.setSecondsBetweenRefreshes(2);
 bar.enableEvents();
-bar.addBlock(wsBar);
+// bar.addBlock(wsBar);
 bar.addBlock(freeMem);
 bar.addBlock(gpuMem);
 bar.addBlock(networkBlock);

@@ -79,5 +79,4 @@ get_session(){
 
 #exec $(get_session "$1")
 
-#exec sway --my-next-gpu-wont-be-nvidia -V
 exec i3

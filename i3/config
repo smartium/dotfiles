@@ -54,6 +54,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle border pixel 1
+bindsym Mod1+space exec vala-panel-runner
 #bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
@@ -111,19 +112,15 @@ bindsym $mod+r mode "resize"
 
 bar {
   position bottom
-    workspace_buttons no
-    mode hide
-    hidden_state hide
-    modifier $mod
-    font pango: Monoid-Retina 11
-    separator_symbol "      "
-    
-  # status_command i3status -c $HOME/.config/i3status/i3status.conf
+  workspace_buttons no
+  mode hide
+  hidden_state hide
+  modifier $mod
+  font pango: Monoid-Retina 11
+  separator_symbol "      "
   status_command /home/luizinho/.nvm/versions/node/v14.16.0/bin/node /home/luizinho/.config/i3status-nodejs/main
-  # status_command polybar bsimple
   colors {
     focused_workspace	#313233 #FF0000 #FFFFFF
-    # background				#23252E
     background				#000000
   }
 }
@@ -158,15 +155,18 @@ for_window [class="Gnome-font-viewer"] floating enable sticky enable border norm
 for_window [class="UnityHub"] floating enable sticky enable border normal
 for_window [class="MYKI"] floating enable sticky enable border normal
 for_window [class="Free Download Manager"] floating enable sticky enable border normal
-for_window [class="zoom"] floating enable sticky enable border normal; move container to workspace number $ws9
+for_window [class="zoom"] move container to workspace number $ws9
 for_window [class="Pavucontrol"] floating enable sticky enable border normal
 for_window [class="Blueberry.py"] floating enable sticky enable border pixel 1
 for_window [class="Xdg-desktop-portal-gtk"] floating enable sticky enable border pixel 1
 for_window [class="Nitrogen"] floating enable sticky enable border pixel 1
+for_window [class="stacer"] floating enable sticky enable border pixel normal
 for_window [class="Pamac-installer"] floating enable sticky enable border pixel 1
 for_window [class="Pamac-manager"] move container to workspace number $ws8; workspace $ws8
+for_window [class="WhatsAppQT"] move container to workspace number $ws9; workspace $ws9
 for_window [class="Notion"] workspace $ws9
 for_window [class="Nemo"] move container to workspace number $ws2
+for_window [class="Mailspring"] move container to workspace number $ws6
 #for_window [class="kitty"] move container to workspace number $ws3
 for_window [class="Code"] move container to workspace number $ws4
 bindsym $mod+Shift+minus move scratchpad border normal
