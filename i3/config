@@ -13,7 +13,7 @@ exec_always --no-startup-id /home/luizinho/.config/polybar/launch.sh
 exec --no-startup-id pamac-tray
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-clipman
-exec_always --no-startup-id feh --bg-fill /home/luizinho/Pictures/Wallpapers/DarthRed2.jpg
+exec_always --no-startup-id feh --bg-fill /home/luizinho/Pictures/Wallpapers/ArchRed.png
 exec --no-startup-id dunst
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -144,10 +144,10 @@ client.placeholder      #000000	#0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 bindsym $mod+b exec google-chrome-stable; workspace $ws5
 bindsym $mod+t exec kitty
-bindsym $mod+c exec rofi -show
+bindsym $mod+c exec ulauncher
 bindsym $mod+g workspace $ws10; exec rofi -show drun -show-icons
 bindsym $mod+x exec rofi -show p -modi p:$HOME/.config/rofi/rofi-power-menu -font "Ubuntu 20" -width 20 -lines 6
-bindsym $mod+Shift+t exec thunar
+bindsym $mod+n exec nemo; workspace $ws2
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Nm-connection-editor"] floating enable sticky enable border normal
 for_window [class="Gnome-font-viewer"] floating enable sticky enable border normal
