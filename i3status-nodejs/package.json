@@ -12,6 +12,8 @@
     "license": "ISC",
     "dependencies": {
         "@i3bar/core": "^0.4.0",
+        "i3": "^0.3.0",
+        "i3wm": "^1.1.0",
         "os": "^0.1.1"
     }
 }

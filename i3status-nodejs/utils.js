@@ -1,6 +1,25 @@
 const { readFile } = require("fs");
 const { exec } = require("child_process");
 const { userInfo, networkInterfaces, freemem } = require("os");
+const i3wm = require('i3wm')
+
+var OLD = 0
+var NEW = 0
+
+i3wm.Client.connect().then(client => {
+    // console.log('Conneceted')
+    client.subscribe('window', 'workspace')
+    client.on('workspace', msg => {
+        // if (msg.change === 'focus') {
+        // console.log(msg.current.num)
+        // wsBarEvent(msg.current.num)
+        NEW = msg.current.num
+            // } else {
+            // NEW = 0
+            // }
+            // console.log(wsBarEvent());
+    })
+})
 
 function formatBlock(icon, command, sufix = '') {
     return `<span color="#FF0000">${icon}</span> <span color="#999999">${command}<span color="#666666" size="x-small"> ${sufix}</span></span>`
@@ -8,6 +27,10 @@ function formatBlock(icon, command, sufix = '') {
 
 function addLeadingZero(input) {
     return input.toString().padStart(2, "0");
+}
+
+function wsBarEvent() {
+    return NEW.toString()
 }
 
 async function getFreeMem() {
@@ -161,6 +184,7 @@ function networkInterfaceIPAddress(interface) {
 }
 
 module.exports = {
+    wsBarEvent,
     getFreeMem,
     getGpuMem,
     getCommandOutput,

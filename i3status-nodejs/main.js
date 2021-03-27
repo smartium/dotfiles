@@ -1,11 +1,12 @@
 const { I3Bar } = require('@i3bar/core');
 const bar = new I3Bar();
-const { freeMem, gpuMem, networkBlock, brightnessBlock, batteryBlock, volumeBlock, userBlock, timeBlock } = require('./blocks');
+const { wsBar, freeMem, gpuMem, networkBlock, brightnessBlock, batteryBlock, volumeBlock, userBlock, timeBlock } = require('./blocks');
 
 // process.stdout.write('%{F#FFFF00} Olá Mundo!')
 
-bar.setSecondsBetweenRefreshes(0.3);
+bar.setSecondsBetweenRefreshes(0.1);
 bar.enableEvents();
+bar.addBlock(wsBar);
 bar.addBlock(freeMem);
 bar.addBlock(gpuMem);
 bar.addBlock(networkBlock);

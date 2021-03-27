@@ -42,12 +42,10 @@ font-2=Font Awesome 5 Free Solid:size=10;3
 font-3=Font Awesome 5 Free Regular:size=10;3
 font-4=Font Awesome 5 Brands:size=12;3
 
-
-
 modules-left = apple i3
 modules-center =  xwindow
 ;modules-right = myscreen wlan cpu memory gamma pulseaudio-control bluetooth battery date powermenu
-modules-right = date
+;modules-right = date
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -62,6 +60,18 @@ modules-right = date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+
+[module/nodeWorkspace]
+type = custom/ipc
+hook-0 = /home/luizinho/.nvm/versions/node/v14.16.0/bin/node /home/luizinho/.config/i3status-nodejs/bar
+hook-1 = echo hook1
+initial = 1
+;exec = /home/luizinho/.config/polybar/modules/apple/launch.sh
+;enable-click = true
+;click-left = rofi -show drun -show-icons
+;click-right = 
+;interval = 1
 
 [module/myhome]
 type = custom/text
@@ -152,19 +162,19 @@ index-sort = true
 wrapping-scroll = true
 pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = #00FF00
 
 label-focused =%name%
 ;label-focused-background = ${colors.background-alt}
-label-focused-background = #090b10
-label-focused-foreground = #00FF00
-label-focused-underline= #090b10
-label-focused-padding = 3
+;label-focused-background = #090b10
+label-focused-foreground = #FF0000
+label-focused-underline= #FF0000
+label-focused-padding = 4
 
 label-unfocused =%name%
-label-unfocused-padding = 3
+label-unfocused-padding = 2
 
 label-visible =VISIBLE %name%
 label-visible-background = ${self.label-focused-background}
@@ -405,7 +415,7 @@ type = custom/script
 exec = /home/luizinho/.config/polybar/modules/apple/launch.sh
 enable-click = true
 click-left = rofi -show drun -show-icons
-;click-right = 
+click-right = vala-panel-runner
 interval = 3600
 
 [module/myapps]
@@ -626,40 +636,3 @@ margin-top = 5
 margin-bottom = 5
 
 ;vim:ft=dosini
-
-
-[bar/systray]
-monitor = ${env:MONITOR:DP-2}
-
-# As small as possible, polybar will resize it when items get added
-width = 1
-
-# Whatever fits your needs
-height = 100
-
-# Bottom left to imitate gnome-shells systray
-bottom = true
-
-# REQUIRED for us to be able to move the window
-override-redirect = true
-
-modules-right = placeholder
-
-tray-position = left
-tray-maxsize = 45
-tray-padding = 8
-tray-background = #282C34
-
-[module/placeholder]
-# Just a dummy module as polybar always requires at least one amodule
-type = custom/script
-width = 1
-
-[bar/windows]
-bottom = true
-modules-left = i3-windows
-
-[module/i3-windows]
-type = custom/script
-exec = /home/luizinho/.config/polybar/modules/windows/module.py
-tail = true

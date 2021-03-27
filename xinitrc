@@ -14,7 +14,7 @@ SESSION=${1:-xfce}
 # Start Xorg server at this DPI
 xrandr --dpi 192
 
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -79,4 +79,5 @@ get_session(){
 
 #exec $(get_session "$1")
 
+#exec sway --my-next-gpu-wont-be-nvidia -V
 exec i3

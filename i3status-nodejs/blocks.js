@@ -1,6 +1,7 @@
 const { I3Block } = require('@i3bar/core');
-const { getFreeMem, getGpuMem, networkInterfaceIPAddress, getTime, getBattery, getVolume, getBrightness, getOsUsername } = require("./utils");
+const { wsBarEvent, getFreeMem, getGpuMem, networkInterfaceIPAddress, getTime, getBattery, getVolume, getBrightness, getOsUsername } = require("./utils");
 
+const wsBar = new I3Block({ full_text: wsBarEvent, name: 'wsbar', markup: 'pango' });
 const freeMem = new I3Block({ full_text: getFreeMem, markup: 'pango' });
 const gpuMem = new I3Block({ full_text: getGpuMem, markup: 'pango' });
 const timeBlock = new I3Block({ full_text: getTime, name: 'time', markup: 'pango' });
@@ -13,6 +14,7 @@ const networkBlock = new I3Block({ full_text: () => networkInterfaceIPAddress("w
 // /usr/bin/node -e 'console.log(require("os").networkInterfaces())' 
 
 module.exports = {
+    wsBar,
     freeMem,
     gpuMem,
     timeBlock,

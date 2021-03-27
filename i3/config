@@ -10,10 +10,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id /home/luizinho/.config/polybar/launch.sh
+exec --no-startup-id vala-panel
 exec --no-startup-id pamac-tray
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-clipman
-exec_always --no-startup-id feh --bg-fill /home/luizinho/Pictures/Wallpapers/ArchRed.png
+exec_always --no-startup-id feh --bg-scale /home/luizinho/Pictures/Wallpapers/wp2618254-blackarch-wallpaper.png
 exec --no-startup-id dunst
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -21,8 +22,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindcode 233 exec light -A 10
-bindcode 232 exec light -U 10
+bindcode 233 exec light -A 2
+bindcode 232 exec light -U 2
 
 floating_modifier $mod
 
@@ -117,7 +118,7 @@ bindsym $mod+r mode "resize"
 bar {
   position bottom
     workspace_buttons no
-    font pango: Monoid-Retina 9
+    font pango: Monoid-Retina 11
     separator_symbol "      "
     
   # status_command i3status -c $HOME/.config/i3status/i3status.conf
@@ -144,10 +145,11 @@ client.placeholder      #000000	#0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 bindsym $mod+b exec google-chrome-stable; workspace $ws5
 bindsym $mod+t exec kitty
-bindsym $mod+c exec ulauncher
+bindsym $mod+c exec rofi -show -show-icons
 bindsym $mod+g workspace $ws10; exec rofi -show drun -show-icons
 bindsym $mod+x exec rofi -show p -modi p:$HOME/.config/rofi/rofi-power-menu -font "Ubuntu 20" -width 20 -lines 6
 bindsym $mod+n exec nemo; workspace $ws2
+bindsym Shift+$mod+o exec flameshot gui -p $HOME/Pictures/Screenshots
 bindsym Shift+$mod+p exec flameshot full -p $HOME/Pictures/Screenshots
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Nm-connection-editor"] floating enable sticky enable border normal
