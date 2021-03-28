@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export HOME="/home/luizinho"
+export CONFIGS="$HOME/.smartium"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -109,3 +110,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.applications/vscode"
 
 alias pacman="sudo pacman"
+
+source $CONFIGS/onlogin.sh
