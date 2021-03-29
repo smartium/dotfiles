@@ -14,8 +14,8 @@ exec_always --no-startup-id /home/luizinho/.config/polybar/launch.sh
 exec --no-startup-id pamac-tray
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id xfce4-clipman
-
 exec --no-startup-id dunst
+exec  --no-startup-id feh --bg-scale /home/luizinho/Pictures/Wallpapers/wp2618254-blackarch-wallpaper.png
 
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -26,12 +26,6 @@ bindcode 233 exec light -A 2
 bindcode 232 exec light -U 2
 
 floating_modifier $mod
-
-bindsym $mod+Return exec kitty
-
-bindsym $mod+q kill
-
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -118,6 +112,9 @@ bindsym $mod+r mode "resize"
 bar {
   position bottom
     workspace_buttons no
+    mode hide
+    hidden_state hide
+    modifier $mod
     font pango: Monoid-Retina 11
     separator_symbol "      "
     
@@ -144,6 +141,9 @@ client.urgent						#2f343a	#900000 #ffffff #900000   #900000
 client.placeholder      #000000	#0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
+bindsym $mod+Return workspace $ws3; exec kitty
+bindsym $mod+q kill
+bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons
 bindsym $mod+b exec google-chrome-stable; workspace $ws5
 bindsym $mod+t exec kitty
 bindsym $mod+c exec rofi -show
@@ -164,9 +164,10 @@ for_window [class="Blueberry.py"] floating enable sticky enable border pixel 1
 for_window [class="Xdg-desktop-portal-gtk"] floating enable sticky enable border pixel 1
 for_window [class="Nitrogen"] floating enable sticky enable border pixel 1
 for_window [class="Pamac-installer"] floating enable sticky enable border pixel 1
+for_window [class="Pamac-manager"] move container to workspace number $ws8; workspace $ws8
 for_window [class="Notion"] workspace $ws9
 for_window [class="Nemo"] move container to workspace number $ws2
-for_window [class="kitty"] move container to workspace number $ws3
+#for_window [class="kitty"] move container to workspace number $ws3
 for_window [class="Code"] move container to workspace number $ws4
 bindsym $mod+Shift+minus move scratchpad border normal
 # Shows the first scratchpad window
@@ -183,5 +184,3 @@ for_window [urgent=latest] focus
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 bindsym $mod+Tab workspace next
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
-
-exec  --no-startup-id feh --bg-scale /home/luizinho/Pictures/Wallpapers/wp2618254-blackarch-wallpaper.png

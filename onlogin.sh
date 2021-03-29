@@ -2,7 +2,6 @@
 
 if [ $TERM = linux ]
 then
-  echo LINUX
   tput reset
   echo 
   echo 

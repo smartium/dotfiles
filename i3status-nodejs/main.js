@@ -4,7 +4,7 @@ const { wsBar, freeMem, gpuMem, networkBlock, brightnessBlock, batteryBlock, vol
 
 // process.stdout.write('%{F#FFFF00} Olá Mundo!')
 
-bar.setSecondsBetweenRefreshes(0.1);
+bar.setSecondsBetweenRefreshes(2);
 bar.enableEvents();
 bar.addBlock(wsBar);
 bar.addBlock(freeMem);

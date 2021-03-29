@@ -45,7 +45,7 @@ font-4=Font Awesome 5 Brands:size=12;3
 modules-left = apple i3
 modules-center =  xwindow
 ;modules-right = myscreen wlan cpu memory gamma pulseaudio-control bluetooth battery date powermenu
-;modules-right = date
+modules-right = date powermenu
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -137,10 +137,10 @@ scroll-down = $HOME/.config/polybar/modules/pulseaudio/control.bash --volume-max
 
 [module/xwindow]
 type = internal/xwindow
-label-foreground = #00FFFF
+label-foreground = #9900FFFF
 ;label = %title:0:30:...%
 label = %title%
-;label-maxlen = 200
+label-maxlen = 100
 format-padding = 0
 label-empty = nothing here
 label-empty-foreground = #900
