@@ -46,8 +46,8 @@ font-6="LineIcons:size=12;3"
 
 modules-left = apple i3
 modules-center =  xwindow
-;modules-right = myscreen wlan cpu memory gamma pulseaudio-control bluetooth battery date powermenu
-modules-right = date powermenu
+modules-right = myscreen wlan cpu memory gamma pulseaudio-control bluetooth battery date powermenu
+;modules-right = date powermenu
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -131,7 +131,7 @@ label-foreground = ${colors.foreground}
 # trouble-free but repetitive, or apply only the relevant ones (for example
 # --sink-blacklist is only needed for next-sink).
 exec = $HOME/.config/polybar/modules/pulseaudio/control.bash --icons-volume "%{F#BBFF0000}%{F#FFFFFF},%{F#BBFFFF00}%{F#FFFFFF}" --icon-muted " " --sink-nicknames-from "device.description" --sink-nickname "alsa_output.pci-0000_00_1b.0.analog-stereo:Built-in" --sink-nickname "bluez_sink.70_99_1C_0A_BB_41.a2dp_sink:  %{F#9900FFFF}%{F#FFFFFF}JBL" --volume-step 1 listen
-click-right = exec pavucontrol &
+click-right = $HOME/.config/polybar/modules/volume-slider/launch.sh
 click-left = $HOME/.config/polybar/modules/pulseaudio/control.bash togmute
 click-middle = $HOME/.config/polybar/modules/pulseaudio/control.bash --sink-blacklist "alsa_output.pci-0000_01_00.1.hdmi-stereo-extra2" next-sink
 scroll-up = $HOME/.config/polybar/modules/pulseaudio/control.bash --volume-max 130 up
