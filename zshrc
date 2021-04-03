@@ -115,3 +115,7 @@ source $CONFIGS/onlogin.sh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/Development/flutter/sdk/bin"
+export ANDROID_HOME="$HOME/Development/android/sdk"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"

@@ -1,6 +1,6 @@
 const { I3Bar } = require('@i3bar/core');
 const bar = new I3Bar();
-const { wsBar, freeMem, gpuMem, networkBlock, brightnessBlock, batteryBlock, volumeBlock, userBlock, timeBlock } = require('./blocks');
+const { wsBar, freeMem, gpuMem, wirelessNetworkBlock, rndisNetworkBlock, brightnessBlock, batteryBlock, volumeBlock, userBlock, timeBlock } = require('./blocks');
 
 // process.stdout.write('%{F#FFFF00} Olá Mundo!')
 
@@ -9,7 +9,8 @@ bar.enableEvents();
 // bar.addBlock(wsBar);
 bar.addBlock(freeMem);
 bar.addBlock(gpuMem);
-bar.addBlock(networkBlock);
+bar.addBlock(wirelessNetworkBlock);
+bar.addBlock(rndisNetworkBlock);
 bar.addBlock(brightnessBlock);
 bar.addBlock(batteryBlock);
 bar.addBlock(volumeBlock);
@@ -30,7 +31,7 @@ bar.on("rightClick", async function(blockName) {
     if (blockName === "power") {
         await getCommandOutput("xfce4-power-manager-settings");
         bar.render();
-    } else if (blockName === "network") {
+    } else if (blockName === "wirelessnetwork") {
         await getCommandOutput("nm-connection-editor");
         bar.render();
     } else if (blockName === "volume") {

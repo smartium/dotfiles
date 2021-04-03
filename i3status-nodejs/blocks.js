@@ -9,7 +9,8 @@ const batteryBlock = new I3Block({ full_text: getBattery, name: 'power', markup:
 const volumeBlock = new I3Block({ full_text: getVolume, name: "volume", markup: 'pango' });
 const brightnessBlock = new I3Block({ full_text: getBrightness, name: "brightness", markup: 'pango' });
 const userBlock = new I3Block({ full_text: getOsUsername, name: "username", markup: 'pango' });
-const networkBlock = new I3Block({ full_text: () => networkInterfaceIPAddress("wlp3s0"), name: 'network', markup: 'pango' });
+const wirelessNetworkBlock = new I3Block({ full_text: () => networkInterfaceIPAddress("wlp3s0"), name: 'wirelessnetwork', markup: 'pango' });
+const rndisNetworkBlock = new I3Block({ full_text: () => networkInterfaceIPAddress("enp0s20u5"), name: 'rndisnetwork', markup: 'pango' });
 // List your network interfaces with Node.js in a new terminal:
 // /usr/bin/node -e 'console.log(require("os").networkInterfaces())' 
 
@@ -22,5 +23,6 @@ module.exports = {
     volumeBlock,
     brightnessBlock,
     userBlock,
-    networkBlock
+    wirelessNetworkBlock,
+    rndisNetworkBlock
 };

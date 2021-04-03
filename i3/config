@@ -8,6 +8,9 @@ exec --no-startup-id compton -b  #--config $HOME/.config/compton/compton.conf
 exec_always --no-startup-id /home/luizinho/.config/conky/launch.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id blueman-applet
+exec --no-startup-id ibus-daemon
+# exec --no-startup-id /usr/lib/gsd-xsettings 
+# exec --no-startup-id gnome
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id /home/luizinho/.config/polybar/launch.sh
 #exec --no-startup-id vala-panel
@@ -67,7 +70,7 @@ set $ws6 "6 "
 set $ws7 "7 "
 set $ws8 "8 "
 set $ws9 "9 "
-set $ws10 "10 "
+set $ws10 "10 "
 
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -115,7 +118,7 @@ bar {
   workspace_buttons no
   mode hide
   hidden_state hide
-  modifier $mod
+  modifier Mod1
   font pango: Monoid-Retina 11
   separator_symbol "      "
   status_command /home/luizinho/.nvm/versions/node/v14.16.0/bin/node /home/luizinho/.config/i3status-nodejs/main
@@ -145,8 +148,8 @@ bindsym $mod+b exec google-chrome-stable; workspace $ws5
 bindsym $mod+t exec kitty
 bindsym $mod+c exec rofi -show
 bindsym $mod+g workspace $ws10; exec rofi -show drun -show-icons
-bindsym $mod+x exec rofi -show p -modi p:$HOME/.config/rofi/rofi-power-menu -font "Ubuntu 20" -width 20 -lines 6
-bindsym $mod+n exec nemo; workspace $ws2
+bindsym $mod+x exec rofi -show calc -modi calc -no-show-match -no-sort
+bindsym $mod+n exec nautilus; workspace $ws2
 bindsym Shift+$mod+o exec flameshot gui -p $HOME/Pictures/Screenshots
 bindsym Shift+$mod+p exec flameshot full -p $HOME/Pictures/Screenshots
 for_window [class="Lxappearance"] floating enable sticky enable border normal
@@ -165,6 +168,7 @@ for_window [class="Pamac-installer"] floating enable sticky enable border pixel 
 for_window [class="Pamac-manager"] move container to workspace number $ws8; workspace $ws8
 for_window [class="WhatsAppQT"] move container to workspace number $ws9; workspace $ws9
 for_window [class="Notion"] workspace $ws9
+# for_window [class="Microsoft Teams - Preview"] workspace $ws9
 for_window [class="Nemo"] move container to workspace number $ws2
 for_window [class="Mailspring"] move container to workspace number $ws6
 #for_window [class="kitty"] move container to workspace number $ws3

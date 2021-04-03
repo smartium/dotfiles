@@ -41,6 +41,8 @@ font-1 = siji:fontformat=truetype:size=14;0
 font-2=Font Awesome 5 Free Solid:size=10;3
 font-3=Font Awesome 5 Free Regular:size=10;3
 font-4=Font Awesome 5 Brands:size=12;3
+font-5="Noto Sans:size=11;1"
+font-6="LineIcons:size=12;3"
 
 modules-left = apple i3
 modules-center =  xwindow
@@ -75,7 +77,7 @@ initial = 1
 
 [module/myhome]
 type = custom/text
-content = 
+content = %{A1:firefox:}%{A3:#mydate.toggle:}Opens firefox on left-click and toggles the date on right-click %{A}%{A}
 content-foreground = #666
 click-left = notify-send 'Abrindo a Home'; nautilus ~/ &
 

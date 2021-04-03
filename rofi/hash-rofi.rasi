@@ -8,7 +8,7 @@
  */
 
 configuration {
-    font:                           "Ubuntu 20";
+    font:                           "Ubuntu 40";
     show-icons:                     true;
     display-drun:                   "";
     drun-display-format:            "{name}";
@@ -31,7 +31,7 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border-radius:                  0px;
+    border-radius:                  30px;
     height:                         1050px;
     width:                          1680px;
     location:                       center;
@@ -45,7 +45,7 @@ prompt {
     padding:                        0px 8px -5px 0px;
     background-color:               @background-alt;
     text-color:                     @foreground;
-    font:                           "Noto Sans 13";
+    font:                           "Noto Sans 30";
 }
 
 inputbar {
@@ -99,7 +99,7 @@ element {
     text-color:                     @foreground;
     orientation:                    vertical;
     border-radius:                  0px;
-    padding:                        10px 0px 10px 0px;
+    padding:                        0px 0px 0px 0px;
 }
 
 element-icon {
